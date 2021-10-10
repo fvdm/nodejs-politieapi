@@ -1,0 +1,40 @@
+{
+  "author": {
+    "name": "Franklin",
+    "email": "info@fvdm.com",
+    "url": "https://fvdm.com"
+  },
+  "name": "politie-api",
+  "description": "Access the Politie API (unofficial)",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fvdm/nodejs-politieapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fvdm/nodejs-politieapi/issues"
+  },
+  "main": "index.js",
+  "files": [],
+  "dependencies": {
+    "httpreq": "^0.5.1"
+  },
+  "devDependencies": {
+    "dotest": "^2.10.0"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "api",
+    "politie",
+    "police",
+    "netherlands",
+    "nl",
+    "government"
+  ],
+  "license": "Unlicense",
+  "scripts": {
+    "test": "dotest"
+  }
+}

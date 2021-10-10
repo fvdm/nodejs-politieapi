@@ -1,0 +1,27 @@
+# Logs
+logs
+*.log
+.*_history
+npm-debug.log*
+
+# Runtime
+pids
+*.pid
+*.seed
+
+# Test
+lib-cov
+coverage
+.grunt
+.lock-wscript
+.nyc_output
+
+# Compile
+build/Release
+
+# Dependencies
+node_modules
+.npm
+.node_repl_history
+.package.json
+package-lock.json
