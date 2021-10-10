@@ -2,9 +2,9 @@
 
 Access the Politie Open data API with Node.js (unofficial)
 
-[![npm](https://img.shields.io/npm/v/politie-api.svg?maxAge=3600)](https://github.com/fvdm/nodejs-politieapi/blob/master/CHANGELOG.md)
-[![Build Status](https://github.com/fvdm/nodejs-politieapi/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/fvdm/nodejs-politieapi/actions/workflows/node.js.yml)
-[![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-politieapi/badge.svg?branch=master)](https://coveralls.io/github/fvdm/nodejs-politieapi?branch=master)
+[![npm](https://img.shields.io/npm/v/politie-api.svg?maxAge=3600)](https://github.com/fvdm/nodejs-politieapi/blob/main/CHANGELOG.md)
+[![Build Status](https://github.com/fvdm/nodejs-politieapi/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/fvdm/nodejs-politieapi/actions/workflows/node.js.yml)
+[![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-politieapi/badge.svg?branch=main)](https://coveralls.io/github/fvdm/nodejs-politieapi?branch=main)
 
 * [Node.js](https://nodejs.org/)
 * [Politie Open data API](https://www.politie.nl/algemeen/open-data.html/)
