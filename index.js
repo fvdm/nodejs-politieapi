@@ -5,7 +5,8 @@
  * Source:       https://github.com/fvdm/nodejs-politieapi
  * License:      Unlicense (public domain, see LICENSE file)
  */
- 
+
+const { doRequest } = require ('httpreq');
  
 module.exports = class PolitieAPI {
 
