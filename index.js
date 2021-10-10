@@ -21,4 +21,45 @@ module.exports = class PolitieAPI {
     };
   }
 
+
+  /**
+   * Communicate with API
+   *
+   * @param   {string}  path          Request path
+   * @param   {object}  [parameters]  Request arguments
+   *
+   * @return  {Promise<object>}
+   */
+
+  async _talk ({
+    path,
+    parameters = {},
+  }) {
+    const options = {
+      url: 'https://api.politie.nl' + path,
+      method: 'GET',
+      timeout: this._config.timeout,
+      headers: {
+        Accept: 'application/json',
+      },
+    };
+
+    const res = await doRequest (options);
+    const data = JSON.parse (res.body);
+
+    // API error
+    if (res.statusCode === 400) {
+      const error = new Error (data.message);
+
+      error.code = data.code;
+      error.type = data.type;
+      error,invalidField = data.invalidField;
+
+      throw error;
+    }
+
+    // Success
+    return data;
+  }
+
 };
