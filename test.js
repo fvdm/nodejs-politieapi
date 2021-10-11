@@ -1,7 +1,7 @@
 const dotest = require ('dotest');
 const pkg = require ('./');
 
-const timeout = process.env.POLITIE_TIMEOUT || '';
+const timeout = process.env.POLITIE_TIMEOUT || void 0;
 const app = new pkg ({ timeout });
 
 
