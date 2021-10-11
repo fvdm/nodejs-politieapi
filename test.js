@@ -95,6 +95,7 @@ dotest.add ('API error - JSON', async test => {
     .isNot ('fail', 'error.code', typeof error.code, 'undefined')
     .isNot ('fail', 'error.type', typeof error.type, 'undefined')
     .isArray ('fail', 'error.invalidFields', error.invalidFields)
+    .isNotEmpty ('fail', 'error.invalidFields', error.invalidFields)
     .done()
   ;
 });
@@ -120,6 +121,7 @@ dotest.add ('API error - HTML', async test => {
     .isNot ('fail', 'error.code', typeof error.code, 'undefined')
     .isNot ('fail', 'error.type', typeof error.type, 'undefined')
     .isArray ('fail', 'error.invalidFields', error.invalidFields)
+    .isNotEmpty ('warn', 'error.invalidFields', error.invalidFields)
     .done()
   ;
 });
