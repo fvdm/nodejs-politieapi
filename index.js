@@ -58,9 +58,23 @@ module.exports = class PolitieAPI {
       return empty;
     }
 
+    // API error in HTML
+    const htmlError = data.replace (/.+<h1 id="page-content-title">([^<]+)<\/h1>.+/, '$1');
+
+    if (res.statusCode === 400 && htmlError) {
+      const error = new Error (htmlError);
+
+      error.code = res.statusCode;
+      error.type = '';
+      error.invalidFields = [];
+
+      throw error;
+    }
+
+    // Parse response
     const data = JSON.parse (res.body);
 
-    // API error
+    // API error in JSON
     if (res.statusCode === 400) {
       const error = new Error (data.message);
 

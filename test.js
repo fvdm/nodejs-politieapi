@@ -75,7 +75,32 @@ dotest.add ('Request timeout', async test => {
 });
 
 
-dotest.add ('API error', async test => {
+dotest.add ('API error - JSON', async test => {
+  let error;
+  let data;
+
+  try {
+    data = await app.nieuws ({
+      fromdate: '98765432',
+    });
+  }
+  catch (err) {
+    error = err;
+  }
+
+  test()
+    .isUndefined ('fail', 'data', data)
+    .isError ('fail', 'error', error)
+    .isNotEmpty ('fail', 'error.message', error && error.message)
+    .isNot ('fail', 'error.code', typeof error.code, 'undefined')
+    .isNot ('fail', 'error.type', typeof error.type, 'undefined')
+    .isArray ('fail', 'error.invalidFields', error.invalidFields)
+    .done()
+  ;
+});
+
+
+dotest.add ('API error - HTML', async test => {
   let error;
   let data;
 
