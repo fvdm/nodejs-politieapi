@@ -7,7 +7,7 @@
  */
 
 const { doRequest } = require ('httpreq');
- 
+
 module.exports = class PolitieAPI {
 
   /**
