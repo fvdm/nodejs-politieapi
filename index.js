@@ -52,6 +52,12 @@ module.exports = class PolitieAPI {
     };
 
     const res = await doRequest (options);
+
+    // Success, but empty
+    if (res.statusCode === 204) {
+      return empty;
+    }
+
     const data = JSON.parse (res.body);
 
     // API error
@@ -63,11 +69,6 @@ module.exports = class PolitieAPI {
       error.invalidFields = data.invalidFields;
 
       throw error;
-    }
-
-    // Success, but empty
-    if (res.statusCode === 204) {
-      return empty;
     }
 
     // Success
