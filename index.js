@@ -92,6 +92,14 @@ module.exports = class PolitieAPI {
   }
 
 
+  /**
+   * Get list of news messages
+   *
+   * @param   {object}  parameters  Method parameters
+   *
+   * @return  {Promise<array>}
+   */
+
   async nieuws (parameters) {
     return this._talk ({
       path: '/v4/nieuws',
