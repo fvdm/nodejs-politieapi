@@ -64,4 +64,11 @@ module.exports = class PolitieAPI {
     return data;
   }
 
+
+  async nieuws (parameters) {
+    return this._talk ({
+      path: '/v4/nieuws',
+      parameters,
+    });
+  }
 };
