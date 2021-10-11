@@ -29,6 +29,20 @@ dotest.add ('nieuws', async test => {
 });
 
 
+dotest.add ('Empty response', async test => {
+  app.nieuws ({
+    offset: 1000000,
+  })
+    .then (data => test()
+      .isArray ('fail', 'data', data)
+      .isEmpty ('fail', 'data', data)
+      .done()
+    )
+    .catch (err => test (err).done())
+  ;
+});
+
+
 dotest.add ('Request timeout', async test => {
   let error;
   let data;
