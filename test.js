@@ -30,7 +30,7 @@ dotest.add ('nieuws', async test => {
 });
 
 
-dotest.add ('API timeout', async test => {
+dotest.add ('Request timeout', async test => {
   let error;
   let data;
 
