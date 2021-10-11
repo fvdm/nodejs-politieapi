@@ -28,6 +28,7 @@ module.exports = class PolitieAPI {
    *
    * @param   {string}  path          Request path
    * @param   {string}  key           Response key to return
+   * @param   {mixed}   empty         Default response if empty
    * @param   {object}  [parameters]  Request arguments
    *
    * @return  {Promise<object>}
@@ -37,6 +38,7 @@ module.exports = class PolitieAPI {
     path,
     parameters = {},
     key;
+    empty,
   }) {
     const options = {
       url: 'https://api.politie.nl' + path,
@@ -63,6 +65,11 @@ module.exports = class PolitieAPI {
       throw error;
     }
 
+    // Success, but empty
+    if (res.statusCode === 204) {
+      return empty;
+    }
+
     // Success
     return data[key];
   }
@@ -73,6 +80,7 @@ module.exports = class PolitieAPI {
       path: '/v4/nieuws',
       parameters,
       key: 'nieuwsberichten',
+      empty: [];
     });
   }
 
