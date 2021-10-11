@@ -49,7 +49,7 @@ dotest.add ('API error', async test => {
     .isNotEmpty ('fail', 'error.message', error && error.message)
     .isNumber ('warn', 'error.code', error && error.code)
     .isString ('warn', 'error.type', error && error.type)
-    .isArray ('warn', 'error.invalidFields', error.invalidFields)
+    .isArray ('fail', 'error.invalidFields', error.invalidFields)
     .done()
   ;
 });
