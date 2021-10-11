@@ -15,31 +15,39 @@ dotest.add ('Interface', async test => {
 
 
 dotest.add ('nieuws', async test => {
-  app.nieuws ({
-    fromdate: '20211001',
-    todate: '20211011',
-  })
-    .then (data => test()
+  try {
+    const data = await app.nieuws ({
+      fromdate: '20211001',
+      todate: '20211011',
+    });
+
+    test()
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
       .done()
-    )
-    .catch (err => test (err).done())
-  ;
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
 });
 
 
 dotest.add ('Empty response', async test => {
-  app.nieuws ({
-    offset: 1000000,
-  })
-    .then (data => test()
+  try {
+    const data = await app.nieuws ({
+      offset: 1000000,
+    });
+
+    test()
       .isArray ('fail', 'data', data)
       .isEmpty ('fail', 'data', data)
       .done()
-    )
-    .catch (err => test (err).done())
-  ;
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
 });
 
 
