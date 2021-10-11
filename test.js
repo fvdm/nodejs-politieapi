@@ -48,7 +48,7 @@ dotest.add ('API error', async test => {
     .isError ('fail', 'error', error)
     .isNotEmpty ('fail', 'error.message', error && error.message)
     .isNot ('fail', 'error.code', typeof error.code, 'undefined')
-    .isString ('fail', 'error.type', typeof error.type, 'undefined')
+    .isNot ('fail', 'error.type', typeof error.type, 'undefined')
     .isArray ('fail', 'error.invalidFields', error.invalidFields)
     .done()
   ;
