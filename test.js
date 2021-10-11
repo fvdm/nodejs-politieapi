@@ -75,6 +75,7 @@ dotest.add ('Request timeout', async test => {
 });
 
 
+/*
 dotest.add ('API error - JSON', async test => {
   let error;
   let data;
@@ -100,6 +101,7 @@ dotest.add ('API error - JSON', async test => {
     .done()
   ;
 });
+*/
 
 
 dotest.add ('API error - HTML', async test => {

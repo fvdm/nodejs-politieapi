@@ -74,6 +74,7 @@ module.exports = class PolitieAPI {
     // Parse response
     const data = JSON.parse (res.body);
 
+    /*
     // API error in JSON
     if (res.statusCode === 400) {
       const error = new Error (data.message);
@@ -84,6 +85,7 @@ module.exports = class PolitieAPI {
 
       throw error;
     }
+    */
 
     // Success
     return data[key];
