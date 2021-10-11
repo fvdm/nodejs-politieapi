@@ -55,7 +55,7 @@ module.exports = class PolitieAPI {
 
       error.code = data.code;
       error.type = data.type;
-      error.invalidField = data.invalidField;
+      error.invalidFields = data.invalidFields;
 
       throw error;
     }
