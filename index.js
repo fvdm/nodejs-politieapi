@@ -42,7 +42,8 @@ module.exports = class PolitieAPI {
       timeout: this._config.timeout,
       parameters,
       headers: {
-        Accept: 'application/json',
+        'Accept': 'application/json',
+        'User-Agent': 'https://github.com/fvdm/nodejs-politieapi',
       },
     };
 
