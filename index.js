@@ -15,7 +15,7 @@ module.exports = class PolitieAPI {
    */
 
   constructor ({
-    timeout = 5000,
+    timeout = 10000,
   }) {
     this._config = {
       timeout,
