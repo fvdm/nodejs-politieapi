@@ -59,7 +59,7 @@ module.exports = class PolitieAPI {
     }
 
     // API error in HTML
-    const htmlError = data.replace (/.+<h1 id="page-content-title">([^<]+)<\/h1>.+/, '$1');
+    const htmlError = res.body.replace (/.+<h1 id="page-content-title">([^<]+)<\/h1>.+/, '$1');
 
     if (res.statusCode === 400 && htmlError) {
       const error = new Error (htmlError);
