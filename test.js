@@ -15,18 +15,17 @@ dotest.add ('Interface', async test => {
 
 
 dotest.add ('nieuws', async test => {
-  try {
-    const data = await app.nieuws();
-
-    test()
-      .isObject ('fail', 'data', data)
-      .isArray ('fail', 'data.nieuwsberichten', data && data.nieuwsberichten)
+  app.nieuws ({
+    fromdate: '20211001',
+    todate: '20211011',
+  })
+    .then (data => test()
+      .isArray ('fail', 'data', data)
+      .isNotEmpty ('fail', 'data', data)
       .done()
-    ;
-  }
-  catch (err) {
-    test (err).done();
-  }
+    )
+    .catch (err => test (err).done())
+  ;
 });
 
 
