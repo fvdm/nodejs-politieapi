@@ -44,11 +44,11 @@ dotest.add ('API error', async test => {
   }
 
   test()
-    .isError ('fail', 'err', error)
-    .isNotEmpty ('fail', 'err.message', err && err.message)
-    .isNumber ('warn', 'err.code', err && err.code)
-    .isString ('warn', 'err.type', err && err.type)
-    .isArray ('warn', 'err.invalidFields', err.invalidFields)
+    .isError ('fail', 'error', error)
+    .isNotEmpty ('fail', 'error.message', error && error.message)
+    .isNumber ('warn', 'error.code', error && error.code)
+    .isString ('warn', 'error.type', error && error.type)
+    .isArray ('warn', 'error.invalidFields', error.invalidFields)
     .isUndefined ('fail', 'data', data)
     .done()
   ;
