@@ -37,7 +37,7 @@ module.exports = class PolitieAPI {
   async _talk ({
     path,
     parameters = {},
-    key;
+    key,
     empty,
   }) {
     const options = {
