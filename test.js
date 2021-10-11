@@ -9,6 +9,7 @@ dotest.add ('Interface', async test => {
   test()
     .isClass ('fail', 'exports', pkg)
     .isFunction ('fail', 'nieuws', app && app.nieuws)
+    .isFunction ('fail', 'politiebureaus', app && app.politiebureaus)
     .done()
   ;
 });
@@ -20,6 +21,42 @@ dotest.add ('nieuws', async test => {
       fromdate: '20211001',
       todate: '20211011',
     });
+
+    test()
+      .isArray ('fail', 'data', data)
+      .isNotEmpty ('fail', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
+dotest.add ('politiebureaus', async test => {
+  try {
+    const data = await app.politiebureaus ({
+      lat: 52.373089,
+      lon: 4.8910403,
+      radius: 5,
+    });
+
+    test()
+      .isArray ('fail', 'data', data)
+      .isNotEmpty ('fail', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
+dotest.add ('politiebureaus - all', async test => {
+  try {
+    const data = await app.politiebureaus();
 
     test()
       .isArray ('fail', 'data', data)

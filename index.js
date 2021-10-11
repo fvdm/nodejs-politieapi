@@ -109,4 +109,32 @@ module.exports = class PolitieAPI {
     });
   }
 
+
+  /**
+   * Get list of either all or local police stations
+   * Exclude `lat` and `lon` to list all stations.
+   *
+   * @param   {object}  parameters  Method parameters
+   *
+   * @return  {Promise<array>}
+   */
+
+  async politiebureaus ({
+    lat = null,
+    lon = null,
+  } = {}) {
+    let path = '/v4/politiebureaus';
+
+    if (lat + lon === 0) {
+      path += '/all';
+    }
+
+    return this._talk ({
+      path,
+      parameters: arguments[0],
+      key: 'politiebureaus',
+      empty: [],
+    });
+  }
+
 };
