@@ -30,4 +30,29 @@ dotest.add ('nieuws', async test => {
 });
 
 
+dotest.add ('API error', async test => {
+  let error;
+  let data;
+
+  try {
+    data = await app.nieuws ({
+      invalid: 'test',
+    });
+  }
+  catch (err) {
+    error = err;
+  }
+
+  test()
+    .isError ('fail', 'err', error)
+    .isNotEmpty ('fail', 'err.message', err && err.message)
+    .isNumber ('warn', 'err.code', err && err.code)
+    .isString ('warn', 'err.type', err && err.type)
+    .isArray ('warn', 'err.invalidFields', err.invalidFields)
+    .isUndefined ('fail', 'data', data)
+    .done()
+  ;
+});
+
+
 dotest.run (500);
