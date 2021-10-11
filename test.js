@@ -118,9 +118,9 @@ dotest.add ('API error - HTML', async test => {
     .isUndefined ('fail', 'data', data)
     .isError ('fail', 'error', error)
     .isNotEmpty ('fail', 'error.message', error && error.message)
-    .isNot ('fail', 'error.code', typeof error.code, 'undefined')
-    .isNot ('fail', 'error.type', typeof error.type, 'undefined')
-    .isArray ('fail', 'error.invalidFields', error.invalidFields)
+    .isNot ('warn', 'error.code', typeof error.code, 'undefined')
+    .isNot ('warn', 'error.type', typeof error.type, 'undefined')
+    .isArray ('warn', 'error.invalidFields', error.invalidFields)
     .isNotEmpty ('warn', 'error.invalidFields', error.invalidFields)
     .done()
   ;
