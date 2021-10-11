@@ -30,6 +30,30 @@ dotest.add ('nieuws', async test => {
 });
 
 
+dotest.add ('API timeout', async test => {
+  let error;
+  let data;
+
+  try {
+    const tmp = new pkg ({
+      timeout: 1,
+    });
+
+    data = await tmp.nieuws();
+  }
+  catch (err) {
+    error = err;
+  }
+
+  test()
+    .isUndefined ('fail', 'data', data)
+    .isError ('fail', 'error', error)
+    .isExactly ('fail', 'error.code', error && error.code, 'TIMEOUT')
+    .done()
+  ;
+});
+
+
 dotest.add ('API error', async test => {
   let error;
   let data;
