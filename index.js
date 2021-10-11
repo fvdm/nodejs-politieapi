@@ -80,7 +80,7 @@ module.exports = class PolitieAPI {
       path: '/v4/nieuws',
       parameters,
       key: 'nieuwsberichten',
-      empty: [];
+      empty: [],
     });
   }
 
