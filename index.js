@@ -64,7 +64,7 @@ module.exports = class PolitieAPI {
     if (res.statusCode === 400 && htmlError) {
       const error = new Error (htmlError);
 
-      error.code = res.statusCode;
+      error.code = 0;
       error.type = '';
       error.invalidFields = [];
 
