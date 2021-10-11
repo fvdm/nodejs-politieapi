@@ -92,10 +92,10 @@ dotest.add ('API error - JSON', async test => {
     .isUndefined ('fail', 'data', data)
     .isError ('fail', 'error', error)
     .isNotEmpty ('fail', 'error.message', error && error.message)
-    .isNot ('fail', 'error.code', typeof error.code, 'undefined')
-    .isNot ('fail', 'error.type', typeof error.type, 'undefined')
-    .isArray ('fail', 'error.invalidFields', error.invalidFields)
-    .isNotEmpty ('fail', 'error.invalidFields', error.invalidFields)
+    .isNumber ('warn', 'error.code', error && error.code)
+    .isString ('warn', 'error.type', error && error.type)
+    .isArray ('fail', 'error.invalidFields', error && error.invalidFields)
+    .isNotEmpty ('fail', 'error.invalidFields', error && error.invalidFields)
     .done()
   ;
 });
@@ -118,10 +118,10 @@ dotest.add ('API error - HTML', async test => {
     .isUndefined ('fail', 'data', data)
     .isError ('fail', 'error', error)
     .isNotEmpty ('fail', 'error.message', error && error.message)
-    .isNot ('warn', 'error.code', typeof error.code, 'undefined')
-    .isNot ('warn', 'error.type', typeof error.type, 'undefined')
-    .isArray ('warn', 'error.invalidFields', error.invalidFields)
-    .isNotEmpty ('warn', 'error.invalidFields', error.invalidFields)
+    .isNumber ('warn', 'error.code', error && error.code)
+    .isString ('warn', 'error.type', error && error.type)
+    .isArray ('warn', 'error.invalidFields', error && error.invalidFields)
+    .isNotEmpty ('warn', 'error.invalidFields', error && error.invalidFields)
     .done()
   ;
 });
