@@ -59,12 +59,12 @@ module.exports = class PolitieAPI {
     }
 
     // API error in HTML
-    const htmlError = res.body.replace (/.+<h1 id="page-content-title">([^<]+)<\/h1>.+/, '$1');
+    const htmlError = res.body.match (/<title>([^<]+) \| [^<]+<\/title>/);
 
     if (res.statusCode === 400 && htmlError) {
-      const error = new Error (htmlError);
+      const error = new Error (htmlError[1]);
 
-      error.code = 0;
+      error.code = -1;
       error.type = '';
       error.invalidFields = [];
 
