@@ -36,7 +36,7 @@ dotest.add ('API error', async test => {
 
   try {
     data = await app.nieuws ({
-      invalid: 'test',
+      enddate: '98765432',
     });
   }
   catch (err) {
