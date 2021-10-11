@@ -44,12 +44,12 @@ dotest.add ('API error', async test => {
   }
 
   test()
+    .isUndefined ('fail', 'data', data)
     .isError ('fail', 'error', error)
     .isNotEmpty ('fail', 'error.message', error && error.message)
     .isNumber ('warn', 'error.code', error && error.code)
     .isString ('warn', 'error.type', error && error.type)
     .isArray ('warn', 'error.invalidFields', error.invalidFields)
-    .isUndefined ('fail', 'data', data)
     .done()
   ;
 });
