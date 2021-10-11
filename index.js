@@ -40,6 +40,7 @@ module.exports = class PolitieAPI {
       url: 'https://api.politie.nl' + path,
       method: 'GET',
       timeout: this._config.timeout,
+      parameters,
       headers: {
         Accept: 'application/json',
       },
