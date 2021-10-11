@@ -27,6 +27,7 @@ module.exports = class PolitieAPI {
    * Communicate with API
    *
    * @param   {string}  path          Request path
+   * @param   {string}  key           Response key to return
    * @param   {object}  [parameters]  Request arguments
    *
    * @return  {Promise<object>}
@@ -35,6 +36,7 @@ module.exports = class PolitieAPI {
   async _talk ({
     path,
     parameters = {},
+    key;
   }) {
     const options = {
       url: 'https://api.politie.nl' + path,
@@ -62,7 +64,7 @@ module.exports = class PolitieAPI {
     }
 
     // Success
-    return data;
+    return data[key];
   }
 
 
@@ -70,6 +72,7 @@ module.exports = class PolitieAPI {
     return this._talk ({
       path: '/v4/nieuws',
       parameters,
+      key: 'nieuwsberichten',
     });
   }
 
