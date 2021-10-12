@@ -10,6 +10,7 @@ dotest.add ('Interface', async test => {
     .isClass ('fail', 'exports', pkg)
     .isFunction ('fail', 'nieuws', app && app.nieuws)
     .isFunction ('fail', 'politiebureaus', app && app.politiebureaus)
+    .isFunction ('fail', 'wijkagenten', app && app.wijkagenten)
     .done()
   ;
 });
@@ -57,6 +58,26 @@ dotest.add ('politiebureaus', async test => {
 dotest.add ('politiebureaus - all', async test => {
   try {
     const data = await app.politiebureaus();
+
+    test()
+      .isArray ('fail', 'data', data)
+      .isNotEmpty ('fail', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
+dotest.add ('wijkagenten', async test => {
+  try {
+    const data = await app.wijkagenten ({
+      lat: 52.373089,
+      lon: 4.8910403,
+      radius: 5,
+    });
 
     test()
       .isArray ('fail', 'data', data)

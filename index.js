@@ -137,4 +137,22 @@ module.exports = class PolitieAPI {
     });
   }
 
+
+  /**
+   * Get list of neighbourhood agents
+   *
+   * @param   {object}  parameters  Method parameters
+   *
+   * @return  {Promise<array>}
+   */
+
+  async wijkagenten (parameters) {
+    return this._talk ({
+      path: '/v4/wijkagenten',
+      parameters,
+      key: 'wijkagenten',
+      empty: [],
+    });
+  }
+
 };
