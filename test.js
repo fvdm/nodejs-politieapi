@@ -174,7 +174,9 @@ dotest.add ('API error - JSON', async test => {
   let data;
 
   try {
-    data = await app.nieuws ({
+    const tmp = new pkg();
+
+    data = await tmp.nieuws ({
       fromdate: '98765432',
     });
   }
@@ -202,7 +204,9 @@ dotest.add ('API error - HTML', async test => {
   let data;
 
   try {
-    data = await app.nieuws ({
+    const tmp = new pkg();
+
+    data = await tmp.nieuws ({
       fromdate: '98765432',
     });
   }
