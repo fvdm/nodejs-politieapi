@@ -11,6 +11,7 @@ dotest.add ('Interface', async test => {
     .isFunction ('fail', 'nieuws', app && app.nieuws)
     .isFunction ('fail', 'politiebureaus', app && app.politiebureaus)
     .isFunction ('fail', 'wijkagenten', app && app.wijkagenten)
+    .isFunction ('fail', 'urgentpolitiebericht', app && app.urgentpolitiebericht)
     .done()
   ;
 });
@@ -82,6 +83,40 @@ dotest.add ('wijkagenten', async test => {
     test()
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
+dotest.add ('urgentpolitiebericht', async test => {
+  try {
+    const data = await app.urgentpolitiebericht();
+
+    test()
+      .isObject ('fail', 'data', data)
+      .isNotEmpty ('warn', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
+dotest.add ('urgentpolitiebericht - language', async test => {
+  try {
+    const data = await app.urgentpolitiebericht ({
+      language: 'uk',
+    });
+
+    test()
+      .isObject ('fail', 'data', data)
+      .isNotEmpty ('warn', 'data', data)
       .done()
     ;
   }

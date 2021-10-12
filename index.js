@@ -155,4 +155,24 @@ module.exports = class PolitieAPI {
     });
   }
 
+
+  /**
+   * Get the urgent news message
+   *
+   * @param   {object}  [parameters]  Method parameters
+   *
+   * @return  {Promise<object>}
+   */
+
+  async urgentpolitiebericht (parameters = {}) {
+    return this._talk ({
+      path: '/v4/urgentpolitiebericht',
+      parameters,
+      key: 'opsporingsberichten',
+      empty: [{}],
+    })
+      .then (data => data[0])
+    ;
+  }
+
 };
