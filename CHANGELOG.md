@@ -1,3 +1,13 @@
+#### 0.1.1 (2021-10-12)
+
+##### Documentation Changes
+
+*  Describe functions and minor edits ([a9405604](https://github.com/fvdm/nodejs-politieapi/commit/a9405604614f0a8d020038c5bd9505dcaf25cc26))
+
+##### Refactors
+
+*  Allow defaults on constructor ([f6ee471e](https://github.com/fvdm/nodejs-politieapi/commit/f6ee471e76ba02a5d4c917d38e3b55773ac2580d))
+
 ### 0.1.0 (2021-10-12)
 
 ##### New Features
