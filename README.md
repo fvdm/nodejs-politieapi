@@ -149,6 +149,22 @@ politie.wijkagenten ({
 ```
 
 
+### Vermist
+
+Search for missing persons.
+Does not include unidentified persons.
+
+```js
+// List all
+const data = await politie.vermist();
+
+// Search
+const data = await politie.vermist ({
+  query: 'amsterdam',
+});
+```
+
+
 ### urgentpolitiebericht
 
 Get the current urgent police message, if available.

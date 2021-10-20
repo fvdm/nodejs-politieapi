@@ -157,6 +157,24 @@ module.exports = class PolitieAPI {
 
 
   /**
+   * Get list of missing persons
+   *
+   * @param   {object}  [parameters]  Method parameters
+   *
+   * @return  {Promise<array>}
+   */
+
+  async vermist (parameters) {
+    return this._talk ({
+      path: '/v4/vermist',
+      parameters,
+      key: 'vermisten',
+      empty: [],
+    });
+  }
+
+
+  /**
    * Get the urgent news message
    *
    * @param   {object}  [parameters]  Method parameters

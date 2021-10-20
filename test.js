@@ -92,6 +92,24 @@ dotest.add ('wijkagenten', async test => {
 });
 
 
+dotest.add ('vermist', async test => {
+  try {
+    const data = await app.vermist();
+
+    cache.vermistUid = data[0].uid:
+
+    test()
+      .isArray ('fail', 'data', data)
+      .isNotEmpty ('fail', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
 dotest.add ('urgentpolitiebericht', async test => {
   try {
     const data = await app.urgentpolitiebericht();
