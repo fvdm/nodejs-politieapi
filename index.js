@@ -56,7 +56,7 @@ module.exports = class PolitieAPI {
 
     // Success, but empty
     if (res.statusCode === 204) {
-      return empty;
+      return parameters.uid ? {} : empty;
     }
 
     // API error in HTML
@@ -90,7 +90,7 @@ module.exports = class PolitieAPI {
 
     // Success, return requested object
     if (parameters.uid) {
-      return data[key][0] || {};
+      return data[key][0];
     }
 
     // Success, return data;
