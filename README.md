@@ -7,7 +7,7 @@ Access the Politie Open data API with Node.js (unofficial)
 [![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-politieapi/badge.svg?branch=main)](https://coveralls.io/github/fvdm/nodejs-politieapi?branch=main)
 
 - [Node.js](https://nodejs.org/)
-- [Politie Open data API](https://www.politie.nl/algemeen/open-data.html/)
+- [Politie Open data API](https://www.politie.nl/algemeen/open-data.html)
 - [Changelog](https://github.com/fvdm/nodejs-politieapi/blob/main/CHANGELOG.md)
 
 
@@ -23,7 +23,7 @@ Finally some data is extracted and displayed on the console.
 const PolitieAPI = require ('politie-api');
 const politie = new PolitieAPI();
 
-const geoip = require ('geoip2ws')({
+const geoip = require ('geoip2ws') ({
   userId: '12345',
   licenseKey: 'abc123',
   service: 'insights',
