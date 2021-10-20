@@ -285,4 +285,4 @@ dotest.add ('API error - HTML', async test => {
 });
 
 
-dotest.run (500);
+dotest.run (1000);
