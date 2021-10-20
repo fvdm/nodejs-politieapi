@@ -1,3 +1,39 @@
+### 1.1.0 (2021-10-20)
+
+##### Documentation Changes
+
+* **security:**
+  *  Update text ([54b2cb1b](https://github.com/fvdm/nodejs-politieapi/commit/54b2cb1bfe74c48a5b35387b24857ce0060eb9d7))
+  *  Fixed typo ([44dda1bf](https://github.com/fvdm/nodejs-politieapi/commit/44dda1bfb59cac1230c63ee96c3e4c03cdda6af9))
+*  Added security info ([4d9ac611](https://github.com/fvdm/nodejs-politieapi/commit/4d9ac611079512d743c89098c2832e807a4e9f30))
+*  Added line about Twitter usernames ([488cba4f](https://github.com/fvdm/nodejs-politieapi/commit/488cba4fa01be450014a51c3e1199798747f9e6d))
+*  Minor edits ([f4502650](https://github.com/fvdm/nodejs-politieapi/commit/f4502650ba517285dfed20a74b8d6ad091a48b63))
+*  Changed npm badge to published versions ([0b6febe1](https://github.com/fvdm/nodejs-politieapi/commit/0b6febe1d9db401fce9113d5a6735eef78ad1b35))
+
+##### New Features
+
+*  Add method vermist() ([30722c43](https://github.com/fvdm/nodejs-politieapi/commit/30722c43dc46c30e49e073fef84e91a362e33ab3))
+
+##### Bug Fixes
+
+*  Syntax typo ([c333a9ef](https://github.com/fvdm/nodejs-politieapi/commit/c333a9efb0544ce45e71fdf693750bf8f4effbdf))
+*  Invalid uid handling ([d02709df](https://github.com/fvdm/nodejs-politieapi/commit/d02709df7f42a8866a81b51666baa75faf55901c))
+
+##### Other Changes
+
+*  Return object when a `uid` is requested ([4f6919b8](https://github.com/fvdm/nodejs-politieapi/commit/4f6919b884a4993962c3b729325d56e95493e1b4))
+
+##### Refactors
+
+* **wijkagenten:**  Cleanup twitter.accountnaam ([dc38f7fa](https://github.com/fvdm/nodejs-politieapi/commit/dc38f7faa14d0a5f1a2343cbda3422a743f2efcf))
+
+##### Tests
+
+* **ci:**  Added dependabot config ([a9081495](https://github.com/fvdm/nodejs-politieapi/commit/a908149581209533fc7d2c354d821e96147a157b))
+*  Increase delay to 1 sec ([570d4c4c](https://github.com/fvdm/nodejs-politieapi/commit/570d4c4c5d142dcd95bcb8e53543cb1419f8a8cd))
+*  Added invalid UID checks ([aeac257a](https://github.com/fvdm/nodejs-politieapi/commit/aeac257a9140363ccc2243d304b44c209e2dc902))
+*  Fixed syntax typo ([e2caa357](https://github.com/fvdm/nodejs-politieapi/commit/e2caa357094159fecff1c670cc1467a0bb93ca91))
+
 ## 1.0.0 (2021-10-12)
 
 #### 0.1.1 (2021-10-12)
