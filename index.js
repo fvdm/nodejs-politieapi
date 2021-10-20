@@ -163,7 +163,7 @@ module.exports = class PolitieAPI {
       .then (data => data.map (itm => {
         itm.twitter.accountnaam = itm.twitter.accountnaam.replace (/[^\w]/g, '');
         return itm;
-      })
+      }))
     ;
   }
 
