@@ -129,6 +129,7 @@ politie.politiebureaus ({
 ### wijkagenten
 
 Get a list of local police agents.
+Twitter usernames have their non-word characters removed.
 
 ```js
 // Local police Twitters
