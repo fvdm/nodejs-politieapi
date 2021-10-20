@@ -26,12 +26,13 @@ module.exports = class PolitieAPI {
   /**
    * Communicate with API
    *
-   * @param   {string}  path          Request path
-   * @param   {string}  key           Response key to return
-   * @param   {mixed}   empty         Default response if empty
-   * @param   {object}  [parameters]  Request arguments
+   * @param   {string}  path              Request path
+   * @param   {string}  key               Response key to return
+   * @param   {mixed}   empty             Default response if empty
+   * @param   {object}  [parameters]      Method parameters
+   * @param   {string}  [parameters.uid]  Request one item object
    *
-   * @return  {Promise<object>}
+   * @return  {Promise<array|object>}
    */
 
   async _talk ({
@@ -87,7 +88,12 @@ module.exports = class PolitieAPI {
     }
     */
 
-    // Success
+    // Success, return requested object
+    if (parameters.uid) {
+      return data[key][0] || {};
+    }
+
+    // Success, return data;
     return data[key];
   }
 
@@ -95,9 +101,10 @@ module.exports = class PolitieAPI {
   /**
    * Get list of news messages
    *
-   * @param   {object}  parameters  Method parameters
+   * @param   {object}  [parameters]      Method parameters
+   * @param   {string}  [parameters.uid]  Request one item object
    *
-   * @return  {Promise<array>}
+   * @return  {Promise<array|object>}
    */
 
   async nieuws (parameters) {
@@ -159,9 +166,10 @@ module.exports = class PolitieAPI {
   /**
    * Get list of missing persons
    *
-   * @param   {object}  [parameters]  Method parameters
+   * @param   {object}  [parameters]      Method parameters
+   * @param   {string}  [parameters.uid]  Request one item object
    *
-   * @return  {Promise<array>}
+   * @return  {Promise<array|object>}
    */
 
   async vermist (parameters) {

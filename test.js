@@ -4,6 +4,8 @@ const pkg = require ('./');
 const timeout = process.env.POLITIE_TIMEOUT || void 0;
 const app = new pkg ({ timeout });
 
+const cache = {};
+
 
 dotest.add ('Interface', async test => {
   test()
@@ -101,6 +103,25 @@ dotest.add ('vermist', async test => {
     test()
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
+      .done()
+    ;
+  }
+  catch (err) {
+    test (err).done();
+  }
+});
+
+
+dotest.add ('vermist - uid', async test => {
+  try {
+    const data = await app.vermist ({
+      uid: cache.vermistUid,
+    });
+
+    test()
+      .isObject ('fail', 'data', data)
+      .isNotEmpty ('fail', 'data', data)
+      .isExactly ('fail', 'data.uid', data.uid, cache.vermistUid)
       .done()
     ;
   }
