@@ -10,7 +10,7 @@
 
 ## Reporting a Vulnerability
 
-Contact me using the [contact forn](https://fvdm.com/contact)
+Contact me using the [contact form](https://fvdm.com/contact)
 
 Please be specific about what you found and how you found it.
 If available, please also include errors, log entries and any
