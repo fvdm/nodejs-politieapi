@@ -140,7 +140,7 @@ politie.wijkagenten ({
   .then (data => data.map (itm => {
     return {
       werkgebied: itm.werkgebied,
-      twitter: itm.twitter.accountnaam.replace (/[^\w]/g, ''),
+      twitter: itm.twitter.accountnaam,
     };
   }))
   .then (data => data.filter (itm => itm.twitter))
