@@ -48,7 +48,7 @@ module.exports = class PolitieAPI {
       parameters,
       headers: {
         'Accept': 'application/json',
-        'User-Agent': 'https://github.com/fvdm/nodejs-politieapi',
+        'User-Agent': 'nodejs-politieapi',
       },
     };
 
