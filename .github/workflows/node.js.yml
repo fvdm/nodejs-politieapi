@@ -25,8 +25,6 @@ jobs:
     strategy:
       matrix:
         node-version: ${{ fromJson(needs.lts_versions.outputs.matrix) }}
-    concurrency: 
-      group: node_build
     steps:
       - uses: actions/checkout@v3
       - name: Test on Node.js ${{ matrix.node-version }}
