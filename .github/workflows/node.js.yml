@@ -25,12 +25,10 @@ jobs:
     strategy:
       matrix:
         node-version: ${{ fromJson(needs.lts_versions.outputs.matrix) }}
-    concurrency: 
-      group: node_build
     steps:
       - uses: actions/checkout@v3
       - name: Test on Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
