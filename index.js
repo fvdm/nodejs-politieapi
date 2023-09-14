@@ -6,8 +6,6 @@
  * License:      Unlicense (public domain, see LICENSE file)
  */
 
-const { doRequest } = require ('httpreq');
-
 module.exports = class PolitieAPI {
 
   /**
@@ -42,17 +40,17 @@ module.exports = class PolitieAPI {
     empty,
   }) {
     const options = {
-      url: 'https://api.politie.nl' + path,
       method: 'GET',
-      timeout: this._config.timeout,
-      parameters,
+      signal: AbortSignal.timeout( this._config.timeout ),
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'nodejs-politieapi',
       },
     };
 
-    const res = await doRequest (options);
+    const params = new URLSearchParams( parameters );
+    const url = `https://api.politie.nl${path}?${params}`;
+    const res = await fetch( url, options ):
 
     // Success, but empty
     if (res.statusCode === 204) {
@@ -60,7 +58,8 @@ module.exports = class PolitieAPI {
     }
 
     // API error in HTML
-    const htmlError = res.body.match (/<title>([^<]+) \| [^<]+<\/title>/);
+    const body = await res.text();
+    const htmlError = body.match (/<title>([^<]+) \| [^<]+<\/title>/);
 
     if (res.statusCode === 400 && htmlError) {
       const error = new Error (htmlError[1]);
@@ -73,7 +72,7 @@ module.exports = class PolitieAPI {
     }
 
     // Parse response
-    const data = JSON.parse (res.body);
+    const data = JSON.parse (body);
 
     /*
     // API error in JSON
