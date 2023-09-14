@@ -8,7 +8,7 @@ updates:
     assignees:
       - "fvdm"
     commit-message:
-      prefix: "Test(ci)"
+      prefix: "Chore(github)"
 
   - package-ecosystem: "npm"
     directory: "/"
@@ -17,8 +17,7 @@ updates:
     assignees:
       - "fvdm"
     commit-message:
-      prefix: "Chore(package)"
-      prefix-development: "Chore(package)"
+      prefix: "Chore(deps)"
+      prefix-development: "Chore(devdeps)"
     allow:
       - dependency-type: "production"
-
