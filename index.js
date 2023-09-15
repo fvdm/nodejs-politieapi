@@ -9,7 +9,7 @@
 module.exports = class PolitieAPI {
 
   /**
-   * @param   {number}  [timeout=10000]  Request time out in ms
+   * @param   {number}  [timeout=15000]  Request time out in ms
    */
 
   constructor ({
