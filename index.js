@@ -62,7 +62,7 @@ module.exports = class PolitieAPI {
     const htmlError = body.match (/<title>([^<]+) \| [^<]+<\/title>/);
 
     if (res.status === 400 && htmlError) {
-      const error = new Error (htmlError[1]);
+      const error = new Error ('API: ' + htmlError[1]);
 
       error.code = -1;
       error.type = '';
@@ -77,7 +77,7 @@ module.exports = class PolitieAPI {
     /*
     // API error in JSON
     if (res.status === 400) {
-      const error = new Error (data.message);
+      const error = new Error ('API: ' + data.message);
 
       error.code = data.code;
       error.type = data.type;
