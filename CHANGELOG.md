@@ -1,3 +1,15 @@
+#### 1.1.1 (2023-09-15)
+
+##### Chores
+
+* **package:**  Only major version dev dep ([27fbcca5](https://github.com/fvdm/nodejs-politieapi/commit/27fbcca51195208e6d041651aedc2750cda4904d))
+* **github:**  Update configs ([9b6e1485](https://github.com/fvdm/nodejs-politieapi/commit/9b6e148515f72af1f09a6753849b64444804efe0))
+
+##### Refactors
+
+*  No more production dependencies ([#8](https://github.com/fvdm/nodejs-politieapi/pull/8)) ([b7faa419](https://github.com/fvdm/nodejs-politieapi/commit/b7faa4193865e6a04e03420d897b5512944258ae))
+* **_talk:**  Shorter User-Agent header ([01cee6c2](https://github.com/fvdm/nodejs-politieapi/commit/01cee6c2c2ec2d49494417be3bc58b3795aef468))
+
 ### 1.1.0 (2021-10-20)
 
 ##### Documentation Changes
