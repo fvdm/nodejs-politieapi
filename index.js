@@ -49,7 +49,7 @@ module.exports = class PolitieAPI {
     };
 
     const params = new URLSearchParams (parameters);
-    const url = `https://api.politie.nl${path}?${params}`;
+    const url = 'https://api.politie.nl' + path + '?' + params;
     const res = await fetch (url, options);
 
     // Success, but empty
