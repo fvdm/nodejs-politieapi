@@ -41,7 +41,7 @@ module.exports = class PolitieAPI {
   }) {
     const options = {
       method: 'GET',
-      signal: AbortSignal.timeout (this._config.timeout),
+      signal: AbortSignal.timeout (parseInt (this._config.timeout, 10)),
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'nodejs-politieapi',
