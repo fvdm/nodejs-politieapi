@@ -53,7 +53,7 @@ module.exports = class PolitieAPI {
     const res = await fetch (url, options);
 
     // Success, but empty
-    if (res.statusCode === 204) {
+    if (res.status === 204) {
       return parameters.uid ? {} : empty;
     }
 
@@ -61,7 +61,7 @@ module.exports = class PolitieAPI {
     const body = await res.text();
     const htmlError = body.match (/<title>([^<]+) \| [^<]+<\/title>/);
 
-    if (res.statusCode === 400 && htmlError) {
+    if (res.status === 400 && htmlError) {
       const error = new Error (htmlError[1]);
 
       error.code = -1;
@@ -76,7 +76,7 @@ module.exports = class PolitieAPI {
 
     /*
     // API error in JSON
-    if (res.statusCode === 400) {
+    if (res.status === 400) {
       const error = new Error (data.message);
 
       error.code = data.code;
