@@ -41,16 +41,16 @@ module.exports = class PolitieAPI {
   }) {
     const options = {
       method: 'GET',
-      signal: AbortSignal.timeout( this._config.timeout ),
+      signal: AbortSignal.timeout (this._config.timeout),
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'nodejs-politieapi',
       },
     };
 
-    const params = new URLSearchParams( parameters );
+    const params = new URLSearchParams (parameters);
     const url = `https://api.politie.nl${path}?${params}`;
-    const res = await fetch( url, options );
+    const res = await fetch (url, options);
 
     // Success, but empty
     if (res.statusCode === 204) {
