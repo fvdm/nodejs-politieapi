@@ -6,8 +6,6 @@
  * License:      Unlicense (public domain, see LICENSE file)
  */
 
-const { doRequest } = require ('httpreq');
-
 module.exports = class PolitieAPI {
 
   /**
@@ -15,7 +13,7 @@ module.exports = class PolitieAPI {
    */
 
   constructor ({
-    timeout = 10000,
+    timeout = 15000,
   } = {}) {
     this._config = {
       timeout,
@@ -42,28 +40,29 @@ module.exports = class PolitieAPI {
     empty,
   }) {
     const options = {
-      url: 'https://api.politie.nl' + path,
       method: 'GET',
-      timeout: this._config.timeout,
-      parameters,
+      signal: AbortSignal.timeout (parseInt (this._config.timeout, 10)),
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'nodejs-politieapi',
       },
     };
 
-    const res = await doRequest (options);
+    const params = new URLSearchParams (parameters);
+    const url = 'https://api.politie.nl' + path + '?' + params;
+    const res = await fetch (url, options);
 
     // Success, but empty
-    if (res.statusCode === 204) {
+    if (res.status === 204) {
       return parameters.uid ? {} : empty;
     }
 
     // API error in HTML
-    const htmlError = res.body.match (/<title>([^<]+) \| [^<]+<\/title>/);
+    const body = await res.text();
+    const htmlError = body.match (/<title>([^<]+) \| [^<]+<\/title>/);
 
-    if (res.statusCode === 400 && htmlError) {
-      const error = new Error (htmlError[1]);
+    if (res.status === 400 && htmlError) {
+      const error = new Error ('API: ' + htmlError[1]);
 
       error.code = -1;
       error.type = '';
@@ -73,12 +72,12 @@ module.exports = class PolitieAPI {
     }
 
     // Parse response
-    const data = JSON.parse (res.body);
+    const data = JSON.parse (body);
 
     /*
     // API error in JSON
-    if (res.statusCode === 400) {
-      const error = new Error (data.message);
+    if (res.status === 400) {
+      const error = new Error ('API: ' + data.message);
 
       error.code = data.code;
       error.type = data.type;
@@ -190,15 +189,12 @@ module.exports = class PolitieAPI {
   /**
    * Get the urgent news message
    *
-   * @param   {object}  [parameters]  Method parameters
-   *
    * @return  {Promise<object>}
    */
 
-  async urgentpolitiebericht (parameters = {}) {
+  async urgentpolitiebericht () {
     return this._talk ({
       path: '/v4/urgentpolitiebericht',
-      parameters,
       key: 'opsporingsberichten',
       empty: [{}],
     })

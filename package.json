@@ -16,14 +16,12 @@
   },
   "main": "index.js",
   "files": [],
-  "dependencies": {
-    "httpreq": "^0.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "dotest": "^2"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "keywords": [
     "api",

@@ -147,24 +147,6 @@ dotest.add ('urgentpolitiebericht', async test => {
 });
 
 
-dotest.add ('urgentpolitiebericht - language', async test => {
-  try {
-    const data = await app.urgentpolitiebericht ({
-      language: 'uk',
-    });
-
-    test()
-      .isObject ('fail', 'data', data)
-      .isNotEmpty ('warn', 'data', data)
-      .done()
-    ;
-  }
-  catch (err) {
-    test (err).done();
-  }
-});
-
-
 dotest.add ('Invalid UID', async test => {
   try {
     const data = await app.nieuws ({
@@ -219,7 +201,7 @@ dotest.add ('Request timeout', async test => {
   test()
     .isUndefined ('fail', 'data', data)
     .isError ('fail', 'error', error)
-    .isExactly ('fail', 'error.code', error && error.code, 'TIMEOUT')
+    .isExactly ('fail', 'error.name', error && error.name, 'TimeoutError')
     .done()
   ;
 });
@@ -275,11 +257,9 @@ dotest.add ('API error - HTML', async test => {
     .isUndefined ('fail', 'data', data)
     .isError ('fail', 'error', error)
     .isNotEmpty ('fail', 'error.message', error && error.message)
-    .isNumber ('warn', 'error.code', error && error.code)
     .isExactly ('fail', 'error.code', error && error.code, -1)
     .isString ('warn', 'error.type', error && error.type)
     .isArray ('warn', 'error.invalidFields', error && error.invalidFields)
-    .isNotEmpty ('warn', 'error.invalidFields', error && error.invalidFields)
     .done()
   ;
 });
