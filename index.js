@@ -13,7 +13,7 @@ module.exports = class PolitieAPI {
    */
 
   constructor ({
-    timeout = 10000,
+    timeout = 15000,
   } = {}) {
     this._config = {
       timeout,
