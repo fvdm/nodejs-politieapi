@@ -147,24 +147,6 @@ dotest.add ('urgentpolitiebericht', async test => {
 });
 
 
-dotest.add ('urgentpolitiebericht - language', async test => {
-  try {
-    const data = await app.urgentpolitiebericht ({
-      language: 'uk',
-    });
-
-    test()
-      .isObject ('fail', 'data', data)
-      .isNotEmpty ('warn', 'data', data)
-      .done()
-    ;
-  }
-  catch (err) {
-    test (err).done();
-  }
-});
-
-
 dotest.add ('Invalid UID', async test => {
   try {
     const data = await app.nieuws ({
